@@ -21,30 +21,32 @@ setInterval(function(){
         const n = parseInt(prompt('iscerisci il ' + num + '° numero'));
         // SE n non è NaN
         if (isNaN(n) === false) {
-            // Pusha n in userNum
+            if(userNum.includes(n)) {
+                alert('Numero già inserito')
+            }else {// Pusha n in userNum
             userNum.push(n);
             // Incrmeento num
             num++;
+            }       
         } else {// ALTRIMENTI
             // Alert il 'valore non è valido'
             alert('Il valore inserito non è valido')
-        }
-        
+        }       
     }   
-}, 3000) ;
+}, 30000) ;
 
 // utilizzo setTimeout per poi stampare risultato
 setTimeout(function(){
     const risultato = compare(randomNum, userNum);
     // SE il valore di array è undefined
-    if (risultato[0] === undefined) {
+    if (risultato[0] == undefined) {
         // Stampa 'Nessun numero corretto'
         console.log('Nessun numero corretto')
     }else{ // ALTRIMENTI
         // Stampa il punteggio 
         console.log('Il tuo punteggio è di ' + points + ' ed i numeri corretti sono ' + risultato )
     }
-}, 3100)
+}, 31000)
 
 
 // Creo variabile per il punteggio
