@@ -19,16 +19,32 @@ let num = 1;
 setInterval(function(){
     while(num < 6) {
         const n = parseInt(prompt('iscerisci il ' + num + '° numero'));
-        userNum.push(n);
-        num++;
+        // SE n non è NaN
+        if (isNaN(n) === false) {
+            // Pusha n in userNum
+            userNum.push(n);
+            // Incrmeento num
+            num++;
+        } else {// ALTRIMENTI
+            // Alert il 'valore non è valido'
+            alert('Il valore inserito non è valido')
+        }
+        
     }   
-}, 30000) ;
+}, 3000) ;
 
 // utilizzo setTimeout per poi stampare risultato
 setTimeout(function(){
     const risultato = compare(randomNum, userNum);
-    console.log('Il tuo punteggio è di ' + points + ' ed i numeri corretti sono ' + risultato )
-}, 31000)
+    // SE il valore di array è undefined
+    if (risultato[0] === undefined) {
+        // Stampa 'Nessun numero corretto'
+        console.log('Nessun numero corretto')
+    }else{ // ALTRIMENTI
+        // Stampa il punteggio 
+        console.log('Il tuo punteggio è di ' + points + ' ed i numeri corretti sono ' + risultato )
+    }
+}, 3100)
 
 
 // Creo variabile per il punteggio
@@ -36,7 +52,7 @@ let points = 0
 // Creo funzione per verificare se il numero è presente in randomNum
 function compare (array1, array2){
     let i = 0;
-    // Creo array per i numeir corretti
+    // Creo array per i numeri corretti
     let correctNumb = [];
     let arrayA = array1;
     let length = array1.length;
